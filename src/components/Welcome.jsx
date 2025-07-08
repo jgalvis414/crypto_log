@@ -18,7 +18,7 @@ export default function WelcomeScreen({ onFileLoaded }) {
   }
 
   return (
-    <div className='flex items-center justify-center min-h-screen bg-gradient-to-tr from-indigo-100 to-white'>
+    <div className='flex items-center justify-center h-screen bg-gradient-to-tr from-indigo-100 to-white'>
       <div className='bg-white rounded-3xl shadow-2xl p-10 md:p-16 max-w-2xl w-full flex flex-col items-center'>
         <img src='./icon.png' alt='Logo' className='h-20 mb-6' />
         <h1 className='text-4xl md:text-5xl font-extrabold mb-3 text-indigo-700 text-center leading-tight'>
@@ -70,18 +70,17 @@ export default function WelcomeScreen({ onFileLoaded }) {
           </div>
         </div>
         <div className='mt-10 w-full text-center text-gray-400 text-sm'>
-        Desarrollado con <span className='text-red-500'>♥</span> por{' '}
-        <a
-          href='https://github.com/jgalvis414'
-          target='_blank'
-          rel='noopener noreferrer'
-          className='text-indigo-600 hover:underline font-semibold'
-        >
-          jgalvis414
-        </a>
+          Desarrollado con <span className='text-red-500'>♥</span> por{' '}
+          <a
+            href='https://github.com/jgalvis414'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='text-indigo-600 hover:underline font-semibold'
+          >
+            jgalvis414
+          </a>
+        </div>
       </div>
-      </div>
-      
     </div>
   );
 }

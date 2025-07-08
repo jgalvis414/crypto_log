@@ -4,12 +4,16 @@ import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
 import { fetchBinancePrices } from './utils/binance';
 import * as XLSX from "xlsx";
+import { useAppZoom } from './hooks/useAppZoom';
 
 
 export default function App() {
   const [records, setRecords] = useState(null);
   const [cryptoPrices, setCryptoPrices] = useState({});
   const [showNotif, setShowNotif] = useState(false); // Para la notificación
+
+  useAppZoom();
+
   // Cuando subes la bitácora, busca los precios actuales
   useEffect(() => {
     if (!records || records.length === 0) return;
@@ -42,10 +46,10 @@ function exportToExcel(records) {
   XLSX.writeFile(wb, "bitacora_cripto.xlsx");
 }
 
-  return (
-    <div className='h-screen bg-indigo-50'>
+ return (
+    <div className="min-h-screen h-screen bg-indigo-50 flex">
       {records ? (
-        <div className='flex h-full'>
+        <div className='flex h-full w-full'>
           <Sidebar />
           <Dashboard
             records={records}
@@ -60,7 +64,9 @@ function exportToExcel(records) {
           )}
         </div>
       ) : (
-        <WelcomeScreen onFileLoaded={setRecords} />
+        <div className="flex flex-1 h-screen min-h-screen items-center justify-center">
+          <WelcomeScreen onFileLoaded={setRecords} />
+        </div>
       )}
     </div>
   );
